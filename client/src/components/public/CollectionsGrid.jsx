@@ -4,60 +4,9 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Eye, Heart, Maximize2 } from 'lucide-react';
 
 const CollectionsGrid = ({ collections }) => {
-
-  const baseMocks = [
-    {
-      _id: 'mock1',
-      title: 'Silk Ivory Bridal Lehenga',
-      label: 'House of Dress',
-      compareAtPrice: 12500,
-      price: 8990,
-      category: 'Bridal',
-      images: [{ url: 'https://images.unsplash.com/photo-1594235412402-bbaaec2df157?q=80&w=800' }]
-    },
-    {
-      _id: 'mock2',
-      title: 'Benares Velvet Gown',
-      label: 'Label',
-      compareAtPrice: 8500,
-      price: 6400,
-      category: 'Evening',
-      images: [{ url: 'https://images.unsplash.com/photo-1594751439417-df7a69ca4711?q=80&w=800' }]
-    },
-    {
-      _id: 'mock3',
-      title: 'Jaipur Cotton Kurti Set',
-      label: 'Indi Inside',
-      compareAtPrice: 4200,
-      price: 2800,
-      category: 'Casual',
-      images: [{ url: 'https://images.unsplash.com/photo-1581338834647-b0fb40704e21?q=80&w=800' }]
-    },
-    {
-      _id: 'mock4',
-      title: 'Embroidered Silk Saree',
-      label: 'Goldy',
-      compareAtPrice: 18000,
-      price: 14500,
-      category: 'Bridal',
-      images: [{ url: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800' }]
-    },
-    {
-      _id: 'mock5',
-      title: 'Royal Anarkali Suit',
-      label: 'Anaya',
-      compareAtPrice: 9500,
-      price: 7200,
-      category: 'Evening',
-      images: [{ url: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800' }]
-    }
-  ];
-
-  // Create 15 items to fulfill the 5 rows x 3 columns layout request
-  const initialMocks = [...baseMocks, ...baseMocks, ...baseMocks].map((m, i) => ({...m, _id: m._id + '-' + i}));
-
-  // Limit to 15 items overall 
-  let displayCollections = (collections && collections.length > 0) ? collections : initialMocks;
+  // Use collections from the database.
+  // Because the database is now synced, managing them in the Admin Panel affects this natively.
+  const displayCollections = (collections && collections.length > 0) ? collections : [];
 
   const getDiscount = (price, compare) => {
     if (!compare || !price || compare <= price) return null;

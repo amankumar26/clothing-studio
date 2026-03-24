@@ -72,7 +72,7 @@ const Home = () => {
          <div className="font-serif text-8xl font-black text-brand-dark italic opacity-[0.03] select-none">
             {settings?.businessName || 'GUDDI'}
          </div>
-         <p className="text-[10px] items uppercase font-black tracking-[1em] text-gray-300">ESTD 1994 PARIS</p>
+         <p className="text-[10px] items uppercase font-black tracking-[1em] text-gray-300">ESTD 2010 DELHI</p>
       </div>
 
     </main>

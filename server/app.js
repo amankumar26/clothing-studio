@@ -15,7 +15,22 @@ app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    
+    // Allowed origins: Localhost, Local Network IPs, or Prod URL
+    if (
+      origin.startsWith('http://localhost:') || 
+      origin.startsWith('http://192.168.') || 
+      origin.startsWith('http://10.') ||
+      origin === process.env.CLIENT_URL || 
+      origin === "http://localhost:5173"
+    ) {
+      return callback(null, true);
+    }
+    
+    return callback(new Error('Not allowed by CORS'), false);
+  },
   credentials: true
 }));
 app.use(express.json());
