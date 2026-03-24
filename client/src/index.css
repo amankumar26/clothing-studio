@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-brand-cream text-brand-dark antialiased;
+  }
+  ::selection {
+    @apply bg-brand-terracotta/20 text-brand-dark;
+  }
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-brand-cream;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-terracotta/20 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-terracotta/40;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-burgundy text-white rounded-[2rem] px-10 py-4 transition-all uppercase tracking-[0.2em] text-[11px] font-black h-fit flex items-center justify-center;
+  }
+  .btn-primary:hover {
+    @apply bg-brand-moss;
+  }
+  
+  .btn-secondary {
+    @apply border border-brand-burgundy text-brand-burgundy rounded-[2rem] px-10 py-4 transition-all uppercase tracking-[0.2em] text-[11px] font-black h-fit flex items-center justify-center;
+  }
+  .btn-secondary:hover {
+    @apply bg-brand-burgundy text-white;
+  }
+
+  .section-heading {
+    @apply font-serif text-3xl sm:text-5xl md:text-7xl font-black text-brand-dark leading-tight tracking-tight;
+  }
+  .section-subheading {
+    @apply text-brand-moss uppercase tracking-[0.4em] text-[10px] font-black mb-4 block;
+  }
+}
